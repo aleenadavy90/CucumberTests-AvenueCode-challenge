@@ -11,6 +11,9 @@ selenium-cucumber-Java with Junit framework.
 
 selenium-cucumber is a behavior driven development (BDD) approach to write automation test script to test Web.
 
+A PageObject model was used to define weblements and method associated with each webpage and useit across the tests. 
+eg: see tests/TaskPageElements.java file
+
 ### Running the test ###
 
 To run the tests simply run the TestRun.java file as Junit test which exists in the tests package.
