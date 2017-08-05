@@ -4,12 +4,6 @@ This project automates the ToDo App Tasks functionality using Selenium Webdriver
 
 The cucumber features goes in the features library and should have the ".feature" extension.
 Look at features/mytask.feature. 
-eg: 
-Scenario: My Tasks link should be visible when the user is logged in
-Given I am signed in as a user
-Then I can see the My Tasks link on NavBar
-And I can click on My Tasks link
-Then I am navigated to Tasks page
 
 ### framework used ###
 
