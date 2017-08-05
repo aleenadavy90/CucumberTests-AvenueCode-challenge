@@ -19,18 +19,6 @@ WebDriver driver;
 	@FindBy(xpath="//input[contains(@class,'btn-primary')]")
 	WebElement signInButton;
 	
-	
-	/*
-	@FindBy(id="flight-destination")
-	WebElement destinationCity;
-	
-	@FindBy(id="flight-departing")
-	WebElement departureDate;
-	
-	@FindBy(id="flight-returning")
-	WebElement returnDate;
-	*/
-	
 	public SigninPageElements(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

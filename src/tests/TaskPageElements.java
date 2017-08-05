@@ -19,8 +19,11 @@ WebDriver driver;
  @FindBy(xpath="//input[@ng-model='$data']")
 	WebElement editTaskField;
  
-// @FindBy(xpath="//*[contains(text(), 'gschbdjfshzdghsdgdhdjkzhsjcjhsdkvjsvkvkkdhcguydgkaugkasguwygwauygduwdjbejhfrufhbcsjdbcjhdsbjcdhsjgchjsdgcueuywgeuwbhesbckshbdhcudghjchjgyuegweiuwoedbxnxwewgvwhvvbnnssnsnnsnsnsbccxcjdhjdgejdgejggegggdhgedgeegdgdgegeyegdyegdegegeeywywwyeyeyhelloawesomeehyu')]");
-//	WebElement charCount;
+ @FindBy(xpath="//span[@ng-click='addTask()']")
+    WebElement addButton;
+ 
+ @FindBy(xpath="//*[contains(text(), 'Manage Subtasks')]")
+	WebElement editSubTaskButton;
 	
 	public TaskPageElements(WebDriver driver) {
 		this.driver = driver;
@@ -35,15 +38,11 @@ WebDriver driver;
 	public void verifyMaximumChar() {
 		String myLongChar = "gschbdjfshzdghsdgdhdjkzhsjcjhsdkvjsvkvkkdhcguydgkaugkasguwygwauygduwdjbejhfrufhbcsjdbcjhdsbjcdhsjgchjsdgcueuywgeuwbhesbckshbdhcudghjchjgyuegweiuwoedbxnxwewgvwhvvbnnssnsnnsnsnsbccxcjdhjdgejdgejggegggdhgedgeegdgdgegeyegdyegdegegeeywywwyeyeyhelloawesomeehyuegweiuwoedbxnxwewgvwhvvbnnssnsnnsnsnsbccxcjdhjdgejdgejggegggdhgedgeegdgdgegeyegdyegdegegeeywywwyeyeyhelloawesomeenhbmnmnmnawesomeetest";
 		int longCharLength = myLongChar.length();
-
-	//	WebElement elem = driver.findElement(By.id("new_task"));
 		taskField.sendKeys(myLongChar);
 		taskField.sendKeys(Keys.RETURN);
 		
 		WebElement charCount = driver.findElement(By.xpath("//*[contains(text(), 'gschbdjfshzdghsdgdhdjkzhsjcjhsdkvjsvkvkkdhcguydgkaugkasguwygwauygduwdjbejhfrufhbcsjdbcjhdsbjcdhsjgchjsdgcueuywgeuwbhesbckshbdhcudghjchjgyuegweiuwoedbxnxwewgvwhvvbnnssnsnnsnsnsbccxcjdhjdgejdgejggegggdhgedgeegdgdgegeyegdyegdegegeeywywwyeyeyhelloawesomeehyu')]"));
 		charCount.click();
-	//	WebElement test2 = driver.findElement(By.xpath("//input[@ng-model='$data']"));
-
 		editTaskField.click();
 		int realLength = editTaskField.getAttribute("value").length();
 		Assert.assertEquals(longCharLength, realLength);  
@@ -55,5 +54,36 @@ WebDriver driver;
 			System.out.println("User able to enter Tasks with more than 250 characters");
 		}
 	}
-}
+	
+	public void enterTask(String taskname){
+		taskField.sendKeys(taskname);
+		taskField.sendKeys(Keys.RETURN);
+	}
+	
+	public void clickAddButtonTask(String taskname){
+		taskField.sendKeys(taskname);
+		addButton.click();
+	}
+	
+	public boolean isTextPresent(String text){
+        try{
+            boolean b = driver.getPageSource().contains(text);
+            return b;
+        }
+        catch(Exception e){
+            return false;
+        }
+	  }
+    public void subTaskMessage() {
+    		String buttonText = editSubTaskButton.getText();
+    		if((buttonText.contains("Manage SubTask")))
+    		{
+    		System.out.println("Manage SubTasks button visible");
+    		}		
+    	}
+    
+    public void clickSubTaskButton(){
+    	editSubTaskButton.click();
+    }
+   }
 

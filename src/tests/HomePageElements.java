@@ -21,21 +21,6 @@ WebDriver driver;
 	@FindBy(linkText="Sign Out")
 	WebElement signOut;
 	
-/*	@FindBy(id="tab-flight-tab-hp")
-	WebElement fligthsTab;
-	
-	@FindBy(id="flight-origin")
-	WebElement originCity;
-	
-	@FindBy(id="flight-destination")
-	WebElement destinationCity;
-	
-	@FindBy(id="flight-departing")
-	WebElement departureDate;
-	
-	@FindBy(id="flight-returning")
-	WebElement returnDate;
-	*/
 	public HomePageElements(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -80,12 +65,5 @@ WebDriver driver;
 		String bodyText = driver.findElement(By.tagName("h1")).getText();
 		Assert.assertEquals("Hey Aleena Davy, this is your todo list for today:", bodyText);		
 	}
-/*	public void setOriginCity(String origin) {
-		originCity.sendKeys(origin);
-	}
-	
-	public void setDestinationCity(String destination) {
-		destinationCity.sendKeys(destination);  
-	}   */
 
 }
